@@ -17,10 +17,6 @@ def addUser(request):
         newUser = t_user(userName=userName, userAlias=userAlias, pwd=pwd)
         newUser.save()
         response = HttpResponse("ok")
-        response['Access-Control-Allow-Origin']='*'
-        response['Access-Control-Allow-Headers'] = '*'
         return response
     response = HttpResponse("ERROR")
-    response['Access-Control-Allow-Origin'] = '*'
-    response['Access-Control-Allow-Headers'] = '*'
     return response

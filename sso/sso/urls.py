@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from sso import addUser
+from ssoRequest import addUser
+from ssoValid import login
 
 urlpatterns = [
     url(r'^sso/v1/users/',addUser),
+    url(r'^sso/v1/login/', login),
 ]

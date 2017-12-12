@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from ssoRequest import addUser
 from ssoValid import login
+from ssoEml import sml
 
 urlpatterns = [
     url(r'^sso/v1/users/',addUser),
     url(r'^sso/v1/login/', login),
+    url(r'^sso/v1/sendEmail/', sml),
 ]

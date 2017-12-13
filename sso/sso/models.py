@@ -9,3 +9,7 @@ class t_user(models.Model):
     userName = models.CharField(max_length=32,unique=True)
     userAlias = models.CharField(max_length=64)
     pwd = models.CharField(max_length=128)
+
+class t_comment(models.Model):
+    message = models.TextField()
+    date = models.CharField(max_length=64)

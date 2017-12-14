@@ -151,6 +151,8 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
     'Pragma',
+    'token',
+    'userName'
 )
 
 # Static files (CSS, JavaScript, Images)

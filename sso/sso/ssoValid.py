@@ -23,7 +23,10 @@ def login(request):
         if user.pwd==pwd:
             token = uuid.uuid4().hex
             ssoCache.set(userName,token)
-            response = HttpResponse("token" + token)
+            tokenjson = {}
+            tokenjson['token'] = token
+
+            response = HttpResponse(json.dumps(tokenjson), content_type="application/json")
             return response
         response = HttpResponse("user or password is error!")
         return response

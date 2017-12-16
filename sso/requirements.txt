@@ -1,0 +1,6 @@
+Django==1.11.7
+django-cors-headers==2.1.0
+django-cross-origin==0.9.0
+PyMySQL==0.7.11
+pytz==2017.3
+redis==2.10.6

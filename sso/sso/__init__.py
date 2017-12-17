@@ -5,11 +5,11 @@ import ConfigParser
 cf = ConfigParser.ConfigParser()
 cf.read("config.ini")
 #return allsection
-secs = cf.sections()
-opts_db = cf.options("db")
-opts_redis = cf.options("redis")
+# secs = cf.sections()
+# opts_db = cf.options("db")
+# opts_redis = cf.options("redis")
 #获取db section下的 options，返回list
-kvs_redis = cf.items("redis")
+# kvs_redis = cf.items("redis")
 #获取db section 下的所有键值对，返回list 如下，每个list元素为键值对元组
 
 #read by type

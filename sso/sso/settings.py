@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'sso.wsgi.application'
 cf = ConfigParser.ConfigParser()
 cf.read("config.ini")
 #return allsection
-secs = cf.sections()
-opts = cf.options("db")
-kvs = cf.items("db")
+# secs = cf.sections()
+# opts = cf.options("db")
+# kvs = cf.items("db")
 
 #read by type
 db_user = cf.get("db", "db_user")

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import ConfigParser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,6 +77,19 @@ WSGI_APPLICATION = 'sso.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+#read config.ini
+cf = ConfigParser.ConfigParser()
+cf.read("config.ini")
+#return allsection
+secs = cf.sections()
+opts = cf.options("db")
+kvs = cf.items("db")
+
+#read by type
+db_user = cf.get("db", "db_user")
+db_password = cf.get("db", "db_password")
+db_host = cf.get("db", "db_host")
+db_port = cf.getint("db", "db_port")
 
 DATABASES = {
     'default': {
@@ -83,10 +97,10 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sso',
-        'USER': 'tang',
-        'PASSWORD': 'tangtang',
-        'HOST': '192.168.1.105',
-        'PORT': '3306',
+        'USER': db_user,
+        'PASSWORD': db_password,
+        'HOST': db_host,
+        'PORT': db_port,
     }
 }
 

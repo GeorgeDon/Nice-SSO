@@ -11,7 +11,7 @@ def login(request):
     # response = HttpResponse(test)
     # return response
     if request.method == 'POST':
-        received_json_data = json.loads(request.body,encoding='utf-8')
+        received_json_data = json.loads(request.body, encoding='utf-8')
         print received_json_data
         userName = received_json_data.get("name")
         pwd = received_json_data.get("pwd")
@@ -20,7 +20,7 @@ def login(request):
             response = HttpResponse("ERROR")
             return response
         user = t_user.objects.get(userName=userName)
-        if user.pwd==pwd:
+        if user.pwd == pwd:
             token = uuid.uuid4().hex
             ssoCache.set(userName,token)
             tokenjson = {}

@@ -1,9 +1,13 @@
 # coding= utf-8
 import pymysql
 import ConfigParser
+import os
 
 cf = ConfigParser.ConfigParser()
-cf.read("config.ini")
+workpath = os.path.abspath(os.curdir)
+print "path"+workpath+"\config.ini"
+configFile = workpath+"\config.ini"
+cf.read(configFile)
 #return allsection
 # secs = cf.sections()
 # opts_db = cf.options("db")

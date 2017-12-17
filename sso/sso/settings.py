@@ -79,9 +79,7 @@ WSGI_APPLICATION = 'sso.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 #read config.ini
 cf = ConfigParser.ConfigParser()
-workpath = os.path.abspath(os.curdir)
-print "path"+workpath+"\config.ini"
-configFile = workpath+"\config.ini"
+configFile = "config.ini"
 cf.read(configFile)
 #return allsection
 # secs = cf.sections()

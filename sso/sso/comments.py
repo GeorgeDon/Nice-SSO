@@ -2,13 +2,18 @@
 import json
 from django.http import HttpResponse
 from models import t_comment
-from django.forms.models import model_to_dict
 
 def comment(request):
-    com = t_comment.objects.all().values('message', 'date').order_by('-id')[:10]
-    comList = list(com)
+    page =int( request.GET.get('page'))
+    size = int(request.GET.get('size'))
+    index_from=(page-1)*size
+    index_to=index_from+size
+    com = t_comment.objects.all().values('message', 'date').order_by('-id')[index_from:index_to]
     count = t_comment.objects.all().count()
+    comList=list(com)
+    # try:
     datajson = {}
-    datajson['Total'] = count
     datajson['comments'] = comList
+    datajson['count'] = count
     return HttpResponse(json.dumps(datajson), content_type="application/json")
+    # except

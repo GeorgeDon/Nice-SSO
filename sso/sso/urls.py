@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^sso/v1/users/',addUser),
     url(r'^sso/v1/login/', login),
     url(r'^sso/v1/sendEmail/', sml),
-    url(r'^v1/comments/', comment),
+    url(r'^v1/comments', comment),
     url(r'^v1/leaveMessage/', leave_message),
 ]

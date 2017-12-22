@@ -4,7 +4,9 @@ from django.http import HttpResponse
 from models import t_user
 import json
 import uuid
+from common import log
 
+@log("excute")
 def login(request):
     # # ssoCache.set("lei","su")
     # test=ssoCache.get("lei")

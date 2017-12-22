@@ -4,7 +4,9 @@ import smtplib
 from email.mime.text import MIMEText
 import json
 from django.http import HttpResponse
+from common import log
 
+@log("excute")
 def sml(request):
     received_json_data = json.loads(request.body, encoding='utf-8')
     print received_json_data

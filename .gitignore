@@ -1,3 +1,3 @@
 sso/.idea
-
-sso/test.py
+sso/sso/test.py
+sso/sso.log

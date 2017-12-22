@@ -4,13 +4,14 @@ from django.http import HttpResponse
 from models import t_comment
 import time
 from common import checkLogin
+from common import log
 
-
+@log("excute")
 def leave_message(request):
     responseData={}
     if request.method == 'POST':
         # header=json.loads(request.header)
-        token=request.META.get('HTTP_TOKEN')
+        token = request.META.get('HTTP_TOKEN')
         user = request.META.get('HTTP_USERNAME')
         if token and user:
             if not checkLogin(user,token):

@@ -2,8 +2,9 @@
 import json
 from django.http import HttpResponse
 from models import t_user
+from common import log
 
-
+@log("excute")
 def addUser(request):
     if request.method == 'POST':
         received_json_data = json.loads(request.body,encoding='utf-8')

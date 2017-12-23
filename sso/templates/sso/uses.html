@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>User Name</th>
+            <th>User Alias</th>
+            <th>User Type</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+            <td>{{ user.userName }}</td>
+            <td>{{ user.userAlias }}</td>
+                {% if user.userType == 1 %}
+                    <td>Administrator</td>
+                {% elif user.userType == 0 %}
+                    <td>General User</td>
+                {% endif %}
+            </tr>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

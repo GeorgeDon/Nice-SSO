@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from ssoRequest import addUser
+import ssoRequest
 from ssoValid import login
 from ssoEml import sml
 from comments import comment
 from leaveMessage import leave_message
 
 urlpatterns = [
-    url(r'^sso/v1/users/',addUser),
+    url(r'^sso/v1/users', ssoRequest.addUser),
+    url(r'^sso/v1/user', ssoRequest.listUser),
     url(r'^sso/v1/login/', login),
     url(r'^sso/v1/sendEmail/', sml),
     url(r'^v1/comments', comment),

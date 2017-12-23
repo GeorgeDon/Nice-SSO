@@ -5,11 +5,6 @@ from models import t_comment
 import ssoLog
 from common import log
 
-@log("excute")
-def f():
-    print 2/0
-f()
-
 @log('execute')
 def comment(request):
     page = int(request.GET.get('page'))
@@ -17,7 +12,6 @@ def comment(request):
     index_from = (page-1)*size
     index_to = index_from+size
     com = t_comment.objects.all().values('message', 'date').order_by('-id')[index_from:index_to]
-    ssoLog.logger.debug('Get this page of comments')
     count = t_comment.objects.all().count()
     comList = list(com)
     # try:

@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from models import t_user
 from common import log
+from django.shortcuts import render_to_response
 
 @log("excute")
 def addUser(request):
@@ -21,3 +22,21 @@ def addUser(request):
         return response
     response = HttpResponse("ERROR")
     return response
+
+@log("excute")
+def listUser(request):
+    if request.method == 'GET':
+        # page = int(request.GET.get('page'))
+        # size = int(request.GET.get('size'))
+        # index_from = (page - 1) * size
+        # index_to = index_from + size
+        # user = t_user.objects.all().values('userName', 'userAlias', 'userType').order_by('-id')[index_from:index_to]
+        user = t_user.objects.all().values('userName', 'userAlias', 'userType').order_by('-id')
+        count = t_user.objects.all().count()
+        userList = list(user)
+        # try:
+        datajson = {}
+        datajson['users'] = userList
+        datajson['count'] = count
+        # return HttpResponse(json.dumps(datajson), content_type="application/json")
+        return render_to_response('sso/uses.html', datajson)
